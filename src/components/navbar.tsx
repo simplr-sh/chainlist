@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from './theme-toggle'
 import { Input } from './ui/input'
 
 type NavbarProps = {
@@ -14,6 +15,7 @@ export function Navbar({ className }: NavbarProps) {
       )}
     >
       <Input placeholder="Search chains" />
+      <ThemeToggle />
     </header>
   )
 }

@@ -1,10 +1,15 @@
 'use client'
 
+import { truncateAddress } from '@/lib/utils'
 import type { ChainList } from '@/types/chain'
-import { CopyIcon } from 'lucide-react'
+import { CopyIcon, ExternalLinkIcon } from 'lucide-react'
 import { TableVirtuoso } from 'react-virtuoso'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
+
+// WARNING: This is not a drop in replacement solution and
+// it might not work for some edge cases. Test your code!
+const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
 
 export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
   const chains = chainlist.map((chain) => ({
@@ -31,11 +36,12 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               tableLayout: 'fixed',
               textAlign: 'center',
             }}
+            className="font-medium"
           />
         ),
       }}
       fixedHeaderContent={() => (
-        <tr>
+        <tr className="border-b border-primary/25">
           <th
             style={{
               width: 100,
@@ -45,6 +51,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               left: 0,
               zIndex: 1,
             }}
+            className="border-r border-primary/25"
           >
             Chain ID
           </th>
@@ -57,6 +64,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               left: 100,
               zIndex: 1,
             }}
+            className="border-r border-primary/25"
           >
             Name
           </th>
@@ -66,6 +74,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Short Name
           </th>
@@ -75,6 +84,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Info URL
           </th>
@@ -84,6 +94,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Currency Name
           </th>
@@ -93,6 +104,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Currency Symbol
           </th>
@@ -102,6 +114,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Currency Decimals
           </th>
@@ -111,6 +124,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             SLIP44 Code
           </th>
@@ -120,6 +134,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Status
           </th>
@@ -129,6 +144,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Title
           </th>
@@ -138,6 +154,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Registry
           </th>
@@ -147,6 +164,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Faucets
           </th>
@@ -156,6 +174,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Features
           </th>
@@ -165,6 +184,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Network ID
           </th>
@@ -174,6 +194,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             Red Flags
           </th>
@@ -183,6 +204,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               background: 'hsl(var(--secondary))',
               padding: '10px',
             }}
+            className="border-r border-primary/25"
           >
             HTTPS RPC URLs
           </th>
@@ -200,6 +222,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
       itemContent={(index, chain) => (
         <>
           <td
+            className="border-b border-r border-primary/25"
             style={{
               width: 100,
               padding: '10px',
@@ -213,6 +236,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
             #{chain.chainId}
           </td>
           <td
+            className="border-b border-r border-primary/25"
             style={{
               width: '250px !important',
               padding: '10px',
@@ -251,11 +275,12 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
             {chain.infoURL && URL.canParse(chain.infoURL) ? (
               <a
                 href={chain.infoURL}
-                className="hover:underline underline-offset-4"
+                className="hover:underline underline-offset-4 inline-flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {new URL(chain.infoURL).hostname}
+                <ExternalLinkIcon className="w-3 h-3 shrink-0" />
               </a>
             ) : (
               '-'
@@ -274,29 +299,47 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
             {chain.slip44 ?? '-'}
           </td>
           <td style={{ width: 200, padding: '10px' }} className="break-all">
-            {chain.status ?? '-'}
+            {showStatusBadge(chain.status ?? '-')}
           </td>
           <td style={{ width: 200, padding: '10px' }} className="text-wrap">
             {chain.title ?? '-'}
           </td>
           <td style={{ width: 200, padding: '10px' }} className="break-all">
-            {chain.ens?.registry ?? '-'}
+            <a
+              href="/"
+              className="hover:underline underline-offset-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {chain.ens?.registry ? (
+                <div className="inline-flex items-center gap-1">
+                  {truncateAddress(chain.ens?.registry, 6)}
+                  <ExternalLinkIcon className="w-3 h-3 shrink-0" />
+                </div>
+              ) : (
+                '-'
+              )}
+            </a>
           </td>
           <td style={{ width: 250, padding: '10px' }} className="">
             <div className="flex flex-wrap gap-1">
               {chain.faucets.length ? (
-                chain.faucets.map((faucet) => {
-                  return (
-                    <Badge
-                      key={faucet}
-                      variant={'default'}
-                      className="text-left"
-                    >
-                      {new URL(faucet).hostname}&nbsp;
-                      <CopyIcon className="w-4 h-4" />
-                    </Badge>
-                  )
-                })
+                chain.faucets
+                  .filter((_, i) => i < 2)
+                  .map((faucet) => {
+                    return (
+                      <Badge
+                        key={faucet}
+                        variant={'secondary'}
+                        className="text-left"
+                      >
+                        {new URL(faucet).hostname}&nbsp;
+                        <CopyIcon className="w-3 h-3 shrink-0" />
+                        &nbsp;
+                        <ExternalLinkIcon className="w-3 h-3 shrink-0" />
+                      </Badge>
+                    )
+                  })
               ) : (
                 <span className="mx-auto">-</span>
               )}
@@ -306,14 +349,17 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
             <div className="flex flex-wrap gap-1 items-center justify-center">
               {chain.features?.map(({ name }) => {
                 return (
-                  <Badge key={name} variant={'default'}>
+                  <Badge key={name} variant={'secondary'}>
                     {name}
                   </Badge>
                 )
               }) ?? '-'}
             </div>
           </td>
-          <td style={{ width: 200, padding: '10px' }} className="break-all">
+          <td
+            style={{ width: 200, padding: '10px' }}
+            className="break-all font-bold"
+          >
             {chain.networkId ?? '-'}
           </td>
           <td style={{ width: 200, padding: '10px' }} className="break-all">
@@ -323,7 +369,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
                   {flag}
                 </Badge>
               )
-            }) ?? '-'}
+            }) ?? 'N/A'}
           </td>
           <td style={{ width: 400, padding: '10px' }} className="break-all">
             <div className="flex flex-wrap gap-1">
@@ -333,9 +379,11 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
                 .map((url) => {
                   const _url = new URL(url)
                   return (
-                    <Badge key={url} variant={'default'}>
-                      {_url.hostname}&nbsp;
-                      <CopyIcon className="w-4 h-4" />
+                    <Badge key={url} variant={'secondary'}>
+                      {takeRight(_url.hostname.split('.'), 2).join('.')}&nbsp;
+                      <CopyIcon className="w-3 h-3 shrink-0" />
+                      &nbsp;
+                      <ExternalLinkIcon className="w-3 h-3 shrink-0" />
                     </Badge>
                   )
                 })}
@@ -352,9 +400,11 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
                 .map((url) => {
                   const _url = new URL(url)
                   return (
-                    <Badge key={url} variant={'default'}>
-                      {_url.hostname}&nbsp;
-                      <CopyIcon className="w-4 h-4" />
+                    <Badge key={url} variant={'secondary'}>
+                      {takeRight(_url.hostname.split('.'), 2).join('.')}&nbsp;
+                      <CopyIcon className="w-3 h-3 shrink-0" />
+                      &nbsp;
+                      <ExternalLinkIcon className="w-3 h-3 shrink-0" />
                     </Badge>
                   )
                 })}
@@ -367,4 +417,32 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
       )}
     />
   )
+}
+
+function showStatusBadge(status: string) {
+  switch (status) {
+    case 'active':
+    case '-':
+      return (
+        <Badge variant="default" className="bg-green-400">
+          Active
+        </Badge>
+      )
+    case 'inactive':
+      return <Badge variant="destructive">Inactive</Badge>
+    case 'deprecated':
+      return (
+        <Badge variant="destructive" className="bg-red-400 text-black">
+          Deprecated
+        </Badge>
+      )
+    case 'incubating':
+      return (
+        <Badge variant="outline" className="bg-orange-400 text-black">
+          Incubating
+        </Badge>
+      )
+    default:
+      return <Badge variant="secondary">{status}</Badge>
+  }
 }

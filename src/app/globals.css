@@ -65,6 +65,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  td {
+    @apply border-b border-primary/25;
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

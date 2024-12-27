@@ -15,13 +15,14 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Ethereum Chainlist | Simplr.sh',
+  title: 'Chainlist | Simplr.sh',
   description: 'Ethereum Chainlist by Simplr.sh',
   icons: [
     {
       rel: 'icon',
-      type: 'image/x-icon',
-      url: '/favicon.ico',
+      type: 'image/png',
+      url: '/favicon.png',
+      sizes: '512x512',
     },
   ],
 }

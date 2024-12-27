@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { GithubIcon, PlusIcon } from 'lucide-react'
+import Image from 'next/image'
 import { ThemeToggle } from './theme-toggle'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
@@ -21,6 +22,13 @@ export function Navbar({ className, searchValue, onSearch }: NavbarProps) {
         className
       )}
     >
+      <Image
+        src="/logo.svg"
+        alt="Chainlist"
+        width={120}
+        height={40}
+        className="invert dark:invert-0"
+      />
       <Input
         placeholder="Search chains"
         value={searchValue}

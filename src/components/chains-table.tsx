@@ -26,7 +26,6 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               tableLayout: 'fixed',
               textAlign: 'center',
             }}
-            className="font-medium"
           />
         ),
       }}
@@ -241,12 +240,12 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   src={chain.icon}
                   className="object-contain !rounded-sm"
                 />
-                <AvatarFallback className="font-bold !rounded-sm !bg-transparent">
+                <AvatarFallback className="font-medium !rounded-sm !bg-transparent">
                   {chain.chain.substring(0, 3).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className="w-full shrink flex flex-col gap-0.5">
-                <p className="text-left font-bold leading-snug">
+                <p className="text-left font-semibold leading-snug">
                   {chain.name ?? '-'}
                 </p>
                 <p className="truncate text-left font-medium text-ellipsis w-[20ch]">
@@ -348,7 +347,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
           </td>
           <td
             style={{ width: 200, padding: '10px' }}
-            className="break-all font-bold"
+            className="break-all font-medium"
           >
             {chain.networkId ?? '-'}
           </td>

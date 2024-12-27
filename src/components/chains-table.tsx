@@ -3,28 +3,18 @@
 import { truncateAddress } from '@/lib/utils'
 import type { ChainList } from '@/types/chain'
 import { CopyIcon, ExternalLinkIcon } from 'lucide-react'
+import { memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
 
-// WARNING: This is not a drop in replacement solution and
-// it might not work for some edge cases. Test your code!
 const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
 
-export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
-  const chains = chainlist.map((chain) => ({
-    ...chain,
-    chainId: chain.chainId,
-    name: chain.name,
-    chain: chain.chain,
-    icon: chain.icon,
-    shortName: chain.shortName,
-  }))
-
+export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
   return (
     <TableVirtuoso
-      style={{ height: '90vh' }}
-      data={chains}
+      style={{ height: '85vh' }}
+      data={chainlist}
       components={{
         Table: ({ style, ...props }) => (
           <table
@@ -44,14 +34,14 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
         <tr className="border-b border-primary/25">
           <th
             style={{
-              width: 100,
+              width: 120,
               padding: '10px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
               left: 0,
               zIndex: 1,
             }}
-            className="border-r border-primary/25"
+            // className="border-r border-primary/25"
           >
             Chain ID
           </th>
@@ -61,7 +51,7 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
               padding: '10px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
-              left: 100,
+              left: 120,
               zIndex: 1,
             }}
             className="border-r border-primary/25"
@@ -222,9 +212,9 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
       itemContent={(index, chain) => (
         <>
           <td
-            className="border-b border-r border-primary/25"
+            // className="border-b border-r border-primary/25"
             style={{
-              width: 100,
+              width: 120,
               padding: '10px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
@@ -236,13 +226,13 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
             #{chain.chainId}
           </td>
           <td
-            className="border-b border-r border-primary/25"
+            className="border-r border-primary/25"
             style={{
               width: '250px !important',
               padding: '10px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
-              left: 100,
+              left: 120,
             }}
           >
             <div className="w-full flex items-center justify-center gap-2">
@@ -417,7 +407,9 @@ export function ChainsTable({ chainlist }: { chainlist: ChainList }) {
       )}
     />
   )
-}
+})
+
+ChainsTable.displayName = 'ChainsTable'
 
 function showStatusBadge(status: string) {
   switch (status) {

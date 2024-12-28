@@ -211,17 +211,21 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
         <>
           <td
             // className="border-b border-r border-primary/25"
+            className="break-all"
             style={{
               width: 120,
-              padding: '10px',
+              padding: '10px 2px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
               left: 0,
               textAlign: 'center',
-              fontWeight: 'bold',
+              fontSize: '14px',
+              // fontWeight: 'bold',
             }}
           >
-            #{chain.chainId}
+            <span className="break-all w-[75%] mx-auto text-center truncate text-ellipsis block">
+              {chain.chainId}
+            </span>
           </td>
           <td
             className="border-r border-primary/25"
@@ -247,7 +251,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 <p className="text-left font-semibold leading-snug text-wrap w-full max-w-[90%] block">
                   {chain.name ?? '-'}
                 </p>
-                <p className="truncate text-left font-medium text-ellipsis w-[20ch]">
+                <p className="truncate text-sm text-left font-medium text-ellipsis w-[20ch]">
                   {chain.chain ?? '-'}
                 </p>
               </div>
@@ -267,7 +271,9 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {new URL(chain.infoURL).hostname}
+                {takeRight(new URL(chain.infoURL).hostname.split('.'), 2).join(
+                  '.'
+                )}
                 <ExternalLinkIcon className="w-3 h-3 shrink-0" />
               </a>
             ) : (

@@ -3,10 +3,12 @@
 import { truncateAddress } from '@/lib/utils'
 import type { ChainList } from '@/types/chain'
 import { CopyIcon, ExternalLinkIcon } from 'lucide-react'
-import { memo } from 'react'
+import { Fragment, memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { Badge } from './ui/badge'
+import { toast } from 'sonner'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Badge } from '../ui/badge'
+import { ChainStatusBadge } from './chain-status-badge'
 
 const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
 
@@ -32,24 +34,11 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
         <tr className="border-b border-primary/25">
           <th
             style={{
-              width: 120,
-              padding: '6px 4px',
+              width: 250,
+              padding: '16px 4px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
               left: 0,
-              zIndex: 1,
-            }}
-            // className="border-r border-primary/25"
-          >
-            Chain ID
-          </th>
-          <th
-            style={{
-              width: 250,
-              padding: '6px 4px',
-              background: 'hsl(var(--secondary))',
-              position: 'sticky',
-              left: 120,
               zIndex: 1,
             }}
             className="border-r border-primary/25"
@@ -58,9 +47,19 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
           </th>
           <th
             style={{
+              width: 160,
+              padding: '16px 4px',
+              background: 'hsl(var(--secondary))',
+            }}
+            className="border-r border-primary/25"
+          >
+            Chain ID
+          </th>
+          <th
+            style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -70,7 +69,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -80,7 +79,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -90,7 +89,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -100,7 +99,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -110,7 +109,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -120,7 +119,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -130,7 +129,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -140,7 +139,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -150,7 +149,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 250,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -160,7 +159,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -170,7 +169,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -180,7 +179,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 200,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -190,7 +189,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 400,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
@@ -200,7 +199,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{
               width: 400,
               background: 'hsl(var(--secondary))',
-              padding: '6px 4px',
+              padding: '16px 4px',
             }}
           >
             WSS RPC URLs
@@ -208,42 +207,24 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
         </tr>
       )}
       itemContent={(index, chain) => (
-        <>
-          <td
-            // className="border-b border-r border-primary/25"
-            className="break-all"
-            style={{
-              width: 120,
-              padding: '10px 2px',
-              background: 'hsl(var(--secondary))',
-              position: 'sticky',
-              left: 0,
-              textAlign: 'center',
-              fontSize: '14px',
-              // fontWeight: 'bold',
-            }}
-          >
-            <span className="break-all w-[75%] mx-auto text-center truncate text-ellipsis block">
-              {chain.chainId}
-            </span>
-          </td>
+        <Fragment key={chain.chainId}>
           <td
             className="border-r border-primary/25"
             style={{
-              width: '250px !important',
+              width: '250px',
               padding: '6px 4px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
-              left: 120,
+              left: 0,
             }}
           >
             <div className="w-full flex items-center justify-center gap-3">
-              <Avatar className="shrink-0 border border-primary/25 p-1 !rounded-sm bg-primary/5 w-12 h-12">
+              <Avatar className="shrink-0 p-0 !rounded-sm w-12 h-12">
                 <AvatarImage
                   src={chain.icon}
                   className="object-contain !rounded-sm"
                 />
-                <AvatarFallback className="font-medium !rounded-sm !bg-transparent">
+                <AvatarFallback className="font-bold !rounded-sm bg-primary/5">
                   {chain.chain.substring(0, 3).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
@@ -256,6 +237,17 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 </p>
               </div>
             </div>
+          </td>
+          <td
+            className="break-all"
+            style={{
+              width: 160,
+              padding: '6px 4px',
+            }}
+          >
+            <span className="break-all w-[95%] text-sm mx-auto text-center truncate text-ellipsis block">
+              #{chain.chainId}
+            </span>
           </td>
           <td style={{ width: 200, padding: '6px 4px' }}>
             {chain.shortName ?? '-'}
@@ -293,20 +285,23 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             {chain.slip44 ?? '-'}
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
-            {showStatusBadge(chain.status ?? '-')}
+            <ChainStatusBadge status={chain.status ?? '-'} />
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="text-wrap">
             {chain.title ?? '-'}
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
             <a
-              href="/"
-              className="hover:underline underline-offset-4"
+              href={
+                chain.explorers?.[0]?.url &&
+                `${chain.explorers?.[0]?.url}/address/${chain.ens?.registry}`
+              }
+              className=""
               target="_blank"
               rel="noopener noreferrer"
             >
               {chain.ens?.registry ? (
-                <div className="inline-flex items-center gap-1">
+                <div className="inline-flex items-center gap-1 hover:underline underline-offset-4">
                   {truncateAddress(chain.ens?.registry, 6)}
                   <ExternalLinkIcon className="w-3 h-3 shrink-0" />
                 </div>
@@ -328,9 +323,20 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                         className="text-left"
                       >
                         {new URL(faucet).hostname}&nbsp;
-                        <CopyIcon className="w-3 h-3 shrink-0" />
+                        <CopyIcon
+                          className="w-3 h-3 shrink-0 cursor-pointer"
+                          onClick={() => {
+                            navigator.clipboard.writeText(faucet)
+                            toast.success('Copied to clipboard')
+                          }}
+                        />
                         &nbsp;
-                        <ExternalLinkIcon className="w-3 h-3 shrink-0" />
+                        <ExternalLinkIcon
+                          className="w-3 h-3 shrink-0 cursor-pointer"
+                          onClick={() => {
+                            window.open(faucet, '_blank')
+                          }}
+                        />
                       </Badge>
                     )
                   })
@@ -374,10 +380,15 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   const _url = new URL(url)
                   return (
                     <Badge key={url} variant={'secondary'}>
-                      {takeRight(_url.hostname.split('.'), 2).join('.')}&nbsp;
-                      <CopyIcon className="w-3 h-3 shrink-0" />
-                      &nbsp;
-                      <ExternalLinkIcon className="w-3 h-3 shrink-0" />
+                      {takeRight(_url.hostname.split('.'), 2).join('.')}
+                      &nbsp;&nbsp;
+                      <CopyIcon
+                        className="w-3 h-3 shrink-0 cursor-pointer"
+                        onClick={() => {
+                          navigator.clipboard.writeText(url)
+                          toast.success('Copied to clipboard')
+                        }}
+                      />
                     </Badge>
                   )
                 })}
@@ -395,10 +406,15 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   const _url = new URL(url)
                   return (
                     <Badge key={url} variant={'secondary'}>
-                      {takeRight(_url.hostname.split('.'), 2).join('.')}&nbsp;
-                      <CopyIcon className="w-3 h-3 shrink-0" />
-                      &nbsp;
-                      <ExternalLinkIcon className="w-3 h-3 shrink-0" />
+                      {takeRight(_url.hostname.split('.'), 2).join('.')}
+                      &nbsp;&nbsp;
+                      <CopyIcon
+                        className="w-3 h-3 shrink-0 cursor-pointer"
+                        onClick={() => {
+                          navigator.clipboard.writeText(url)
+                          toast.success('Copied to clipboard')
+                        }}
+                      />
                     </Badge>
                   )
                 })}
@@ -407,38 +423,10 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               RPC URLs */}
             </div>
           </td>
-        </>
+        </Fragment>
       )}
     />
   )
 })
 
 ChainsTable.displayName = 'ChainsTable'
-
-function showStatusBadge(status: string) {
-  switch (status) {
-    case 'active':
-    case '-':
-      return (
-        <Badge variant="default" className="bg-green-400">
-          Active
-        </Badge>
-      )
-    case 'inactive':
-      return <Badge variant="destructive">Inactive</Badge>
-    case 'deprecated':
-      return (
-        <Badge variant="destructive" className="bg-red-400 text-black">
-          Deprecated
-        </Badge>
-      )
-    case 'incubating':
-      return (
-        <Badge variant="outline" className="bg-orange-400 text-black">
-          Incubating
-        </Badge>
-      )
-    default:
-      return <Badge variant="secondary">{status}</Badge>
-  }
-}

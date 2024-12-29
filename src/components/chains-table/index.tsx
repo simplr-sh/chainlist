@@ -35,7 +35,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
           <th
             style={{
               width: 250,
-              padding: '16px 4px',
+              padding: '16px 10px',
               background: 'hsl(var(--secondary))',
               position: 'sticky',
               left: 0,
@@ -187,22 +187,13 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
           </th>
           <th
             style={{
-              width: 400,
+              width: 800,
               background: 'hsl(var(--secondary))',
               padding: '16px 4px',
             }}
             className="border-r border-primary/25"
           >
-            HTTPS RPC URLs
-          </th>
-          <th
-            style={{
-              width: 400,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-          >
-            WSS RPC URLs
+            HTTPS & WSS RPC URLs
           </th>
         </tr>
       )}
@@ -282,7 +273,11 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             {chain.nativeCurrency.decimals ?? '-'}
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
-            {chain.slip44 ?? '-'}
+            {chain.slip44 ? (
+              <Badge variant="secondary">{chain.slip44}</Badge>
+            ) : (
+              '-'
+            )}
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
             <ChainStatusBadge status={chain.status ?? '-'} />
@@ -360,7 +355,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             style={{ width: 200, padding: '6px 4px' }}
             className="break-all font-medium"
           >
-            {chain.networkId ?? '-'}
+            #{chain.networkId ?? '-'}
           </td>
           <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
             {chain.redFlags?.map((flag) => {
@@ -371,56 +366,33 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               )
             }) ?? 'N/A'}
           </td>
-          <td style={{ width: 400, padding: '6px 4px' }} className="break-all">
+          <td style={{ width: 800, padding: '6px 4px' }} className="break-all">
             <div className="flex flex-wrap gap-1">
-              {chain.rpc
-                .filter((url) => url.startsWith('https://'))
-                .filter((_, i) => i < 2)
-                .map((url) => {
-                  const _url = new URL(url)
-                  return (
-                    <Badge key={url} variant={'secondary'}>
-                      {takeRight(_url.hostname.split('.'), 2).join('.')}
-                      &nbsp;&nbsp;
-                      <CopyIcon
-                        className="w-3 h-3 shrink-0 cursor-pointer"
-                        onClick={() => {
-                          navigator.clipboard.writeText(url)
-                          toast.success('Copied to clipboard')
-                        }}
-                      />
-                    </Badge>
-                  )
-                })}
-              {/* &nbsp;+{' '}
-              {chain.rpc.filter((url) => url.startsWith('https://')).length - 2}{' '}
-              RPC URLs */}
-            </div>
-          </td>
-          <td style={{ width: 400, padding: '6px 4px' }} className="break-all">
-            <div className="flex flex-wrap gap-1">
-              {chain.rpc
-                .filter((url) => url.startsWith('wss://'))
-                .filter((_, i) => i < 2)
-                .map((url) => {
-                  const _url = new URL(url)
-                  return (
-                    <Badge key={url} variant={'secondary'}>
-                      {takeRight(_url.hostname.split('.'), 2).join('.')}
-                      &nbsp;&nbsp;
-                      <CopyIcon
-                        className="w-3 h-3 shrink-0 cursor-pointer"
-                        onClick={() => {
-                          navigator.clipboard.writeText(url)
-                          toast.success('Copied to clipboard')
-                        }}
-                      />
-                    </Badge>
-                  )
-                })}
-              {/* &nbsp; +{' '}
-              {chain.rpc.filter((url) => url.startsWith('wss://')).length - 2}{' '}
-              RPC URLs */}
+              {chain.rpc.map((url) => {
+                const _url = new URL(url)
+                return (
+                  <Badge
+                    key={url}
+                    variant={
+                      url.startsWith('https://') ? 'secondary' : 'outline'
+                    }
+                  >
+                    <span className="p-0.5 px-1 bg-primary/75 text-secondary text-[10px] rounded-sm">
+                      {_url.protocol.replace(':', '')}
+                    </span>
+                    &nbsp;&nbsp;
+                    {takeRight(_url.hostname.split('.'), 2).join('.')}
+                    &nbsp;&nbsp;
+                    <CopyIcon
+                      className="w-3 h-3 shrink-0 cursor-pointer"
+                      onClick={() => {
+                        navigator.clipboard.writeText(url)
+                        toast.success('Copied to clipboard')
+                      }}
+                    />
+                  </Badge>
+                )
+              })}
             </div>
           </td>
         </Fragment>

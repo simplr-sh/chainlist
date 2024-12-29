@@ -116,7 +116,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             }}
             className="border-r border-primary/25"
           >
-            Short Name
+            Chain
           </th>
           <th
             style={{
@@ -277,7 +277,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   {chain.name ?? '-'}
                 </p>
                 <p className="truncate text-sm text-left font-medium text-ellipsis w-[20ch]">
-                  {chain.chain ?? '-'}
+                  {chain.shortName ?? '-'}
                 </p>
               </div>
             </div>
@@ -315,7 +315,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             </div>
           </td>
           <td style={{ width: 200, padding: '6px 4px' }}>
-            {chain.shortName ?? '-'}
+            {chain.chain ?? '-'}
           </td>
           <td
             style={{ width: 200, padding: '6px 4px', textWrap: 'wrap' }}

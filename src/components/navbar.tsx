@@ -17,7 +17,7 @@ export function Navbar({ className, searchValue, onSearch }: NavbarProps) {
   return (
     <header
       className={cn(
-        'flex items-center bg-background/50 justify-between gap-4 p-4 sticky top-0 left-0 right-0',
+        'flex items-center bg-background/50 justify-between gap-2 p-4 sticky top-0 left-0 right-0',
         'z-20 backdrop-blur',
         className
       )}
@@ -30,7 +30,8 @@ export function Navbar({ className, searchValue, onSearch }: NavbarProps) {
         className="invert dark:invert-0"
       />
       <Input
-        placeholder="Search chains"
+        className="bg-secondary"
+        placeholder="Search chains by name, short name, or chain ID"
         value={searchValue}
         onInput={(e) => {
           if (onSearch) {
@@ -39,15 +40,28 @@ export function Navbar({ className, searchValue, onSearch }: NavbarProps) {
         }}
       />
       <ThemeToggle />
-      <Button size="icon" variant={'outline'} className="shrink-0">
-        <PlusIcon />
-      </Button>
-      <Button size="icon" variant={'outline'} className="shrink-0">
-        <GithubIcon />
-      </Button>
-      <Button variant={'outline'} className="shrink-0">
+
+      <a
+        href="https://github.com/ethereum-lists/chains/pulls"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button size="icon" variant={'secondary'} className="shrink-0">
+          <PlusIcon />
+        </Button>
+      </a>
+      <a
+        href="https://github.com/simplr-sh/chainlist"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button size="icon" variant={'secondary'} className="shrink-0">
+          <GithubIcon />
+        </Button>
+      </a>
+      {/* <Button variant={'outline'} className="shrink-0">
         Connect Wallet
-      </Button>
+      </Button> */}
     </header>
   )
 }

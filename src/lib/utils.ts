@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function truncateAddress(address: string, chars = 4) {
   return `${address.slice(0, chars)}...${address.slice(-chars)}`
 }
+
+export function takeRight(arr: string[], qty = 1) {
+  return [...arr].splice(-qty, qty)
+}

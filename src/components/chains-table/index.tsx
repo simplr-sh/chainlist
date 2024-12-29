@@ -1,11 +1,9 @@
 'use client'
 
-import { config } from '@/components/rainbowkit-provider'
-import { truncateAddress } from '@/lib/utils'
-import type { Chain, ChainList } from '@/types/chain'
+import { useAddChainMutation } from '@/hooks/use-add-chain-mutation'
+import { takeRight, truncateAddress } from '@/lib/utils'
+import type { ChainList } from '@/types/chain'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useMutation } from '@tanstack/react-query'
-import { getWalletClient } from '@wagmi/core'
 import { CopyIcon, ExternalLinkIcon, Loader2Icon } from 'lucide-react'
 import { Fragment, memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
@@ -15,46 +13,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { ChainStatusBadge } from './chain-status-badge'
-
-const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
+import { Td } from './td'
+import { Th } from './th'
 
 export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
   const { address, isConnected } = useAccount()
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (chain: Chain) => {
-      const client = await getWalletClient(config)
-
-      client.addChain({
-        chain: {
-          name: chain.name,
-          id: chain.chainId,
-          nativeCurrency: {
-            name: chain.nativeCurrency.name,
-            symbol: chain.nativeCurrency.symbol,
-            decimals: chain.nativeCurrency.decimals,
-          },
-          rpcUrls: {
-            default: {
-              http: chain.rpc,
-            },
-          },
-          blockExplorers: {
-            default: {
-              name: 'Block Explorer',
-              url: chain.explorers?.[0]?.url ?? '',
-            },
-          },
-        },
-      })
-    },
-    onSuccess: () => {
-      toast.success('Chain added successfully')
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-  })
+  const { mutate, isPending } = useAddChainMutation()
 
   return (
     <TableVirtuoso
@@ -75,189 +40,55 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
         ),
       }}
       fixedHeaderContent={() => (
-        <tr className="border-b border-primary/25">
-          <th
-            style={{
+        <tr className="border-b border-primary/25 z-10">
+          <Th
+            styles={{
               width: 250,
-              padding: '16px 10px',
-              background: 'hsl(var(--secondary))',
               left: 0,
             }}
-            className="border-r border-primary/25 relative md:sticky z-10"
+            className="relative md:sticky"
           >
-            Name
-          </th>
-          <th
-            style={{
+            Chain Name
+          </Th>
+          <Th
+            styles={{
               width: 160,
-              padding: '16px 4px',
-              background: 'hsl(var(--secondary))',
             }}
-            className="border-r border-primary/25"
           >
             Chain ID
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Add Chain
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Chain
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Info URL
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Currency Name
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Currency Symbol
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Currency Decimals
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            SLIP44 Code
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Status
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Title
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Registry
-          </th>
-          <th
-            style={{
-              width: 250,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Faucets
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Features
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Network ID
-          </th>
-          <th
-            style={{
-              width: 200,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
-            }}
-            className="border-r border-primary/25"
-          >
-            Red Flags
-          </th>
-          <th
-            style={{
+          </Th>
+          <Th>Add Chain</Th>
+          <Th>Chain</Th>
+          <Th>Info URL</Th>
+          <Th>Currency Name</Th>
+          <Th>Currency Symbol</Th>
+          <Th>Currency Decimals</Th>
+          <Th>SLIP44 Code</Th>
+          <Th>Status</Th>
+          <Th>Title</Th>
+          <Th>Registry</Th>
+          <Th>Faucets</Th>
+          <Th>Features</Th>
+          <Th>Network ID</Th>
+          <Th>Red Flags</Th>
+          <Th
+            styles={{
               width: 800,
-              background: 'hsl(var(--secondary))',
-              padding: '16px 4px',
             }}
-            className="border-r border-primary/25"
           >
             HTTPS & WSS RPC URLs
-          </th>
+          </Th>
         </tr>
       )}
       itemContent={(index, chain) => (
         <Fragment key={chain.chainId}>
-          <td
+          <Td
             className="border-r border-primary/25 relative md:sticky"
-            style={{
+            styles={{
               width: '250px',
-              padding: '6px 4px',
               background: 'hsl(var(--secondary))',
               left: 0,
+              zIndex: 2,
             }}
           >
             <div className="w-full flex items-center justify-center gap-2 md:gap-3">
@@ -279,19 +110,17 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 </p>
               </div>
             </div>
-          </td>
-          <td
-            className="break-all"
-            style={{
+          </Td>
+          <Td
+            styles={{
               width: 160,
-              padding: '6px 4px',
             }}
           >
             <span className="break-all w-[95%] text-sm mx-auto text-center truncate text-ellipsis block">
               #{chain.chainId}
             </span>
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }}>
+          </Td>
+          <Td>
             <div className="flex items-center justify-center">
               {address && isConnected ? (
                 <Button
@@ -311,14 +140,9 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 <ConnectButton />
               )}
             </div>
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }}>
-            {chain.chain ?? '-'}
-          </td>
-          <td
-            style={{ width: 200, padding: '6px 4px', textWrap: 'wrap' }}
-            className="break-all"
-          >
+          </Td>
+          <Td>{chain.chain ?? '-'}</Td>
+          <Td>
             {chain.infoURL && URL.canParse(chain.infoURL) ? (
               <a
                 href={chain.infoURL}
@@ -334,30 +158,22 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             ) : (
               '-'
             )}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="text-wrap">
-            {chain.nativeCurrency.name ?? '-'}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
-            {chain.nativeCurrency.symbol ?? '-'}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
-            {chain.nativeCurrency.decimals ?? '-'}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td>{chain.nativeCurrency.name ?? '-'}</Td>
+          <Td>{chain.nativeCurrency.symbol ?? '-'}</Td>
+          <Td>{chain.nativeCurrency.decimals ?? '-'}</Td>
+          <Td>
             {chain.slip44 ? (
               <Badge variant="secondary">{chain.slip44}</Badge>
             ) : (
               '-'
             )}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td>
             <ChainStatusBadge status={chain.status ?? '-'} />
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="text-wrap">
-            {chain.title ?? '-'}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td>{chain.title ?? '-'}</Td>
+          <Td>
             <a
               href={
                 chain.explorers?.[0]?.url &&
@@ -376,8 +192,8 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 '-'
               )}
             </a>
-          </td>
-          <td style={{ width: 250, padding: '6px 4px' }} className="">
+          </Td>
+          <Td styles={{ width: 250 }}>
             <div className="flex flex-wrap gap-1">
               {chain.faucets.length ? (
                 chain.faucets
@@ -411,8 +227,8 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 <span className="mx-auto">-</span>
               )}
             </div>
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td>
             <div className="flex flex-wrap gap-1 items-center justify-center">
               {chain.features?.map(({ name }) => {
                 return (
@@ -422,14 +238,9 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 )
               }) ?? '-'}
             </div>
-          </td>
-          <td
-            style={{ width: 200, padding: '6px 4px' }}
-            className="break-all font-medium"
-          >
-            #{chain.networkId ?? '-'}
-          </td>
-          <td style={{ width: 200, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td className="font-medium">#{chain.networkId ?? '-'}</Td>
+          <Td>
             {chain.redFlags?.map((flag) => {
               return (
                 <Badge key="flag" variant={'destructive'}>
@@ -437,8 +248,8 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 </Badge>
               )
             }) ?? 'N/A'}
-          </td>
-          <td style={{ width: 800, padding: '6px 4px' }} className="break-all">
+          </Td>
+          <Td styles={{ width: 800 }}>
             <div className="flex flex-wrap gap-1">
               {chain.rpc.map((url) => {
                 const _url = new URL(url)
@@ -466,7 +277,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                 )
               })}
             </div>
-          </td>
+          </Td>
         </Fragment>
       )}
     />

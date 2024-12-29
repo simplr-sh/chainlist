@@ -72,7 +72,7 @@
 }
 
 button[data-testid='rk-connect-button'] {
-  @apply !bg-primary !text-primary-foreground !rounded-sm !font-sans !px-4 !py-2 !leading-tight !text-sm !h-fit !font-medium !z-0;
+  @apply !bg-primary !text-primary-foreground !rounded-sm !font-sans !px-4 !py-2 !leading-tight !text-sm !h-fit !font-medium !z-[1];
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

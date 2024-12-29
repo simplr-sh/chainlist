@@ -1,3 +1,4 @@
+import { CSPostHogProvider } from '@/components/cs-posthog-provider'
 import { RainbowKitProviderWrapper } from '@/components/rainbowkit-provider'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
@@ -33,15 +34,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <RainbowKitProviderWrapper>{children}</RainbowKitProviderWrapper>
-          <Toaster position="top-right" closeButton richColors />
-        </ThemeProvider>
+        <CSPostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <RainbowKitProviderWrapper>{children}</RainbowKitProviderWrapper>
+            <Toaster position="top-right" closeButton richColors />
+          </ThemeProvider>
+        </CSPostHogProvider>
       </body>
     </html>
   )

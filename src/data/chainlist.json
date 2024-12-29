@@ -4011,7 +4011,9 @@
     "name": "Sonic Mainnet",
     "chain": "sonic",
     "rpc": [
-      "https://rpc.soniclabs.com"
+      "https://rpc.soniclabs.com",
+      "https://sonic-rpc.publicnode.com",
+      "wss://sonic-rpc.publicnode.com"
     ],
     "faucets": [],
     "nativeCurrency": {
@@ -5378,6 +5380,33 @@
     ]
   },
   {
+    "name": "WowChain Mainnet",
+    "title": "WowChain Mainnet",
+    "chain": "WowChain",
+    "rpc": [
+      "https://rpc.wowchain.io"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "Dogecoin",
+      "symbol": "DOGE",
+      "decimals": 18
+    },
+    "infoURL": "https://wowchain.io",
+    "shortName": "wow",
+    "chainId": 203,
+    "networkId": 203,
+    "icon": "wowchain",
+    "explorers": [
+      {
+        "name": "blockscout",
+        "url": "https://explorer.wowchain.io",
+        "icon": "wowchain",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
     "name": "opBNB Mainnet",
     "icon": "bnbchain",
     "chain": "opBNB",
@@ -6221,7 +6250,9 @@
     "name": "Fraxtal",
     "chain": "FRAX",
     "rpc": [
-      "https://rpc.frax.com"
+      "https://rpc.frax.com",
+      "https://fraxtal-rpc.publicnode.com",
+      "wss://fraxtal-rpc.publicnode.com"
     ],
     "faucets": [],
     "nativeCurrency": {
@@ -13504,7 +13535,9 @@
     "rpc": [
       "https://andromeda.metis.io/?owner=1088",
       "https://metis.drpc.org",
-      "wss://metis.drpc.org"
+      "wss://metis.drpc.org",
+      "https://metis-rpc.publicnode.com",
+      "wss://metis-rpc.publicnode.com"
     ],
     "faucets": [],
     "nativeCurrency": {
@@ -15284,7 +15317,9 @@
     "name": "Unichain Sepolia Testnet",
     "chain": "ETH",
     "rpc": [
-      "https://sepolia.unichain.org"
+      "https://sepolia.unichain.org",
+      "https://unichain-sepolia-rpc.publicnode.com",
+      "wss://unichain-sepolia-rpc.publicnode.com"
     ],
     "faucets": [],
     "nativeCurrency": {
@@ -20279,6 +20314,33 @@
     "status": "incubating"
   },
   {
+    "name": "CratD2C",
+    "chain": "CRATD2C",
+    "rpc": [
+      "https://node1.cratd2csmartchain.io",
+      "https://node2.cratd2csmartchain.io",
+      "https://node3.cratd2csmartchain.io"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "CRATD2C",
+      "symbol": "CRAT",
+      "decimals": 18
+    },
+    "infoURL": "https://cratd2csmartchain.io",
+    "shortName": "cratd2c",
+    "chainId": 2310,
+    "networkId": 2310,
+    "explorers": [
+      {
+        "name": "Blockscout",
+        "url": "https://explorer.cratd2csmartchain.io",
+        "icon": "blockscout",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
     "name": "Chronicle Vesuvius - Lit Protocol Testnet",
     "chain": "LPV",
     "icon": "lit",
@@ -21045,7 +21107,9 @@
     "name": "Fraxtal Testnet",
     "chain": "FRAX",
     "rpc": [
-      "https://rpc.testnet.frax.com"
+      "https://rpc.testnet.frax.com",
+      "https://fraxtal-holesky-rpc.publicnode.com",
+      "wss://fraxtal-holesky-rpc.publicnode.com"
     ],
     "faucets": [],
     "nativeCurrency": {
@@ -22486,6 +22550,60 @@
     "networkId": 3339,
     "slip44": 1,
     "status": "incubating"
+  },
+  {
+    "name": "Meroneum",
+    "chain": "MERON",
+    "icon": "meron",
+    "rpc": [
+      "https://mainnet-node1.meronscan.ai/",
+      "https://mainnet-node2.meronscan.ai/",
+      "https://mainnet-node3.meronscan.ai/"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "MERON",
+      "symbol": "MERON",
+      "decimals": 18
+    },
+    "infoURL": "https://www.meroneum.ai",
+    "shortName": "meron-testnet",
+    "chainId": 3366,
+    "networkId": 3366,
+    "explorers": [
+      {
+        "name": "meronscan",
+        "url": "https://meronscan.ai",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
+    "name": "Meroneum Testnet",
+    "chain": "MERON",
+    "icon": "meron",
+    "rpc": [
+      "https://testnet-node1.meronscan.ai/",
+      "https://testnet-node2.meronscan.ai/",
+      "https://testnet-node3.meronscan.ai/"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "MERON",
+      "symbol": "MERON",
+      "decimals": 18
+    },
+    "infoURL": "https://www.meroneum.ai/",
+    "shortName": "meron",
+    "chainId": 3369,
+    "networkId": 3369,
+    "explorers": [
+      {
+        "name": "meronscan",
+        "url": "https://testnet.meronscan.ai",
+        "standard": "EIP3091"
+      }
+    ]
   },
   {
     "name": "Paribu Net Mainnet",
@@ -37077,6 +37195,31 @@
     ]
   },
   {
+    "name": "Ferrum Quantum Portal Network",
+    "chain": "QPN",
+    "icon": "ferrum",
+    "rpc": [
+      "https://qpn.svcs.ferrumnetwork.io"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "Ferrum",
+      "symbol": "qpFRM",
+      "decimals": 18
+    },
+    "infoURL": "https://ferrum.network",
+    "shortName": "qpn",
+    "chainId": 26100,
+    "networkId": 26100,
+    "explorers": [
+      {
+        "name": "ferrumscout",
+        "url": "https://explorer.ferrumnetwork.io",
+        "standard": "none"
+      }
+    ]
+  },
+  {
     "name": "DucatusX Testnet",
     "chain": "DUCX",
     "rpc": [
@@ -38929,6 +39072,41 @@
         "standard": "none"
       }
     ]
+  },
+  {
+    "name": "PMON Chain",
+    "chain": "42001",
+    "rpc": [
+      "https://rpc.pmon.xyz"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "PMON Token",
+      "symbol": "PMON",
+      "decimals": 18
+    },
+    "infoURL": "https://protocolmonsterlabs.com/pmon-chain",
+    "shortName": "pmon",
+    "chainId": 42001,
+    "networkId": 42001,
+    "icon": "pmon",
+    "explorers": [
+      {
+        "name": "blockscout",
+        "url": "https://explorer.pmon.xyz",
+        "icon": "blockscout",
+        "standard": "EIP3091"
+      }
+    ],
+    "parent": {
+      "type": "L2",
+      "chain": "eip155-42161",
+      "bridges": [
+        {
+          "url": "https://bridge.arbitrum.io"
+        }
+      ]
+    }
   },
   {
     "name": "pegglecoin",
@@ -41040,7 +41218,9 @@
     "name": "Sonic Blaze Testnet",
     "chain": "blaze-testnet",
     "rpc": [
-      "https://rpc.blaze.soniclabs.com"
+      "https://rpc.blaze.soniclabs.com",
+      "https://sonic-blaze-rpc.publicnode.com",
+      "wss://sonic-blaze-rpc.publicnode.com"
     ],
     "faucets": [
       "https://blaze.soniclabs.com/account"
@@ -41059,15 +41239,7 @@
     "shortName": "blaze",
     "chainId": 57054,
     "networkId": 57054,
-    "icon": "sonic",
-    "explorers": [
-      {
-        "name": "sonic blaze testnet",
-        "url": "https://explorer.blaze.soniclabs.com",
-        "icon": "sonic",
-        "standard": "none"
-      }
-    ]
+    "icon": "sonic"
   },
   {
     "name": "Ink",
@@ -41367,7 +41539,9 @@
     "name": "Metis Sepolia Testnet",
     "chain": "ETH",
     "rpc": [
-      "https://sepolia.metisdevops.link"
+      "https://sepolia.metisdevops.link",
+      "https://metis-sepolia-rpc.publicnode.com",
+      "wss://metis-sepolia-rpc.publicnode.com"
     ],
     "faucets": [
       "https://sepolia.faucet.metisdevops.link"

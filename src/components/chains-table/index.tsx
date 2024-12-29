@@ -80,9 +80,8 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               width: 250,
               padding: '16px 10px',
               background: 'hsl(var(--secondary))',
-              // position: 'sticky',
               left: 0,
-              zIndex: 1,
+              zIndex: 10,
             }}
             className="border-r border-primary/25 relative md:sticky"
           >

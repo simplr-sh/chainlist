@@ -40,7 +40,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
         ),
       }}
       fixedHeaderContent={() => (
-        <tr className="border-b border-primary/25 z-10">
+        <tr className="border-b border-primary/25">
           <Th
             styles={{
               width: 250,
@@ -88,7 +88,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               width: '250px',
               background: 'hsl(var(--secondary))',
               left: 0,
-              zIndex: 2,
+              // zIndex: 2,
             }}
           >
             <div className="w-full flex items-center justify-center gap-2 md:gap-3">

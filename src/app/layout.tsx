@@ -1,3 +1,4 @@
+import { RainbowKitProviderWrapper } from '@/components/rainbowkit-provider'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
@@ -34,11 +35,11 @@ export default function RootLayout({
       <body className={`${geistSans.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <RainbowKitProviderWrapper>{children}</RainbowKitProviderWrapper>
           <Toaster position="top-right" closeButton richColors />
         </ThemeProvider>
       </body>

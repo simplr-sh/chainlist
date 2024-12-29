@@ -1,7 +1,8 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { GithubIcon, PlusIcon } from 'lucide-react'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { PlusIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ThemeToggle } from './theme-toggle'
@@ -59,12 +60,19 @@ export function Navbar({ className, searchValue, onSearch }: NavbarProps) {
         rel="noopener noreferrer"
       >
         <Button size="icon" variant={'secondary'} className="shrink-0">
-          <GithubIcon />
+          <Image
+            src="/github.svg"
+            alt="GitHub"
+            width={24}
+            height={24}
+            className="dark:invert"
+          />
         </Button>
       </a>
-      {/* <Button variant={'outline'} className="shrink-0">
-        Connect Wallet
-      </Button> */}
+
+      <div className="shrink-0">
+        <ConnectButton />
+      </div>
     </header>
   )
 }

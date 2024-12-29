@@ -1,18 +1,61 @@
 'use client'
 
+import { config } from '@/components/rainbowkit-provider'
 import { truncateAddress } from '@/lib/utils'
-import type { ChainList } from '@/types/chain'
+import type { Chain, ChainList } from '@/types/chain'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { useMutation } from '@tanstack/react-query'
+import { getWalletClient } from '@wagmi/core'
 import { CopyIcon, ExternalLinkIcon } from 'lucide-react'
 import { Fragment, memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
 import { toast } from 'sonner'
+import { useAccount } from 'wagmi'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
+import { Button } from '../ui/button'
 import { ChainStatusBadge } from './chain-status-badge'
 
 const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
 
 export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
+  const { address, isConnected } = useAccount()
+
+  const { mutate } = useMutation({
+    mutationFn: async (chain: Chain) => {
+      const client = await getWalletClient(config)
+
+      client.addChain({
+        chain: {
+          name: chain.name,
+          id: chain.chainId,
+          nativeCurrency: {
+            name: chain.nativeCurrency.name,
+            symbol: chain.nativeCurrency.symbol,
+            decimals: chain.nativeCurrency.decimals,
+          },
+          rpcUrls: {
+            default: {
+              http: chain.rpc,
+            },
+          },
+          blockExplorers: {
+            default: {
+              name: 'Block Explorer',
+              url: chain.explorers?.[0]?.url ?? '',
+            },
+          },
+        },
+      })
+    },
+    onSuccess: () => {
+      toast.success('Chain added successfully')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+
   return (
     <TableVirtuoso
       style={{ height: '85vh' }}
@@ -54,6 +97,16 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             className="border-r border-primary/25"
           >
             Chain ID
+          </th>
+          <th
+            style={{
+              width: 200,
+              background: 'hsl(var(--secondary))',
+              padding: '16px 4px',
+            }}
+            className="border-r border-primary/25"
+          >
+            Add Chain
           </th>
           <th
             style={{
@@ -239,6 +292,23 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
             <span className="break-all w-[95%] text-sm mx-auto text-center truncate text-ellipsis block">
               #{chain.chainId}
             </span>
+          </td>
+          <td style={{ width: 200, padding: '6px 4px' }}>
+            <div className="flex items-center justify-center">
+              {address && isConnected ? (
+                <Button
+                  type="button"
+                  variant={'default'}
+                  size={'sm'}
+                  className="shrink-0"
+                  onClick={() => mutate(chain)}
+                >
+                  Add Chain
+                </Button>
+              ) : (
+                <ConnectButton />
+              )}
+            </div>
           </td>
           <td style={{ width: 200, padding: '6px 4px' }}>
             {chain.shortName ?? '-'}

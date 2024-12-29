@@ -6,7 +6,7 @@ import type { Chain, ChainList } from '@/types/chain'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useMutation } from '@tanstack/react-query'
 import { getWalletClient } from '@wagmi/core'
-import { CopyIcon, ExternalLinkIcon } from 'lucide-react'
+import { CopyIcon, ExternalLinkIcon, Loader2Icon } from 'lucide-react'
 import { Fragment, memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
 import { toast } from 'sonner'
@@ -21,7 +21,7 @@ const takeRight = (arr: string[], qty = 1) => [...arr].splice(-qty, qty)
 export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
   const { address, isConnected } = useAccount()
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (chain: Chain) => {
       const client = await getWalletClient(config)
 
@@ -80,11 +80,11 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
               width: 250,
               padding: '16px 10px',
               background: 'hsl(var(--secondary))',
-              position: 'sticky',
+              // position: 'sticky',
               left: 0,
               zIndex: 1,
             }}
-            className="border-r border-primary/25"
+            className="border-r border-primary/25 relative md:sticky"
           >
             Name
           </th>
@@ -253,12 +253,12 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
       itemContent={(index, chain) => (
         <Fragment key={chain.chainId}>
           <td
-            className="border-r border-primary/25"
+            className="border-r border-primary/25 relative md:sticky"
             style={{
               width: '250px',
               padding: '6px 4px',
               background: 'hsl(var(--secondary))',
-              position: 'sticky',
+              // position: 'sticky',
               left: 0,
             }}
           >
@@ -302,8 +302,12 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   size={'sm'}
                   className="shrink-0"
                   onClick={() => mutate(chain)}
+                  disabled={isPending}
                 >
-                  Add Chain
+                  {isPending && (
+                    <Loader2Icon className="w-4 h-4 mr-1 animate-spin" />
+                  )}
+                  {isPending ? 'Adding Chain...' : 'Add Chain'}
                 </Button>
               ) : (
                 <ConnectButton />

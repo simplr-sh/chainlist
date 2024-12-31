@@ -12330,13 +12330,13 @@
     "name": "Subtensor EVM Testnet",
     "chain": "Bittensor",
     "rpc": [
-      "https://evm-testnet.dev.opentensor.ai"
+      "https://test.chain.opentensor.ai"
     ],
     "faucets": [],
     "nativeCurrency": {
       "name": "testTAO",
       "symbol": "TAO",
-      "decimals": 9
+      "decimals": 18
     },
     "infoURL": "https://bittensor.com/",
     "shortName": "bittensor-evm-testnet",
@@ -12435,6 +12435,25 @@
         "standard": "EIP3091"
       }
     ]
+  },
+  {
+    "name": "Subtensor EVM",
+    "chain": "Bittensor",
+    "rpc": [
+      "https://lite.chain.opentensor.ai"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "TAO",
+      "symbol": "TAO",
+      "decimals": 18
+    },
+    "infoURL": "https://bittensor.com/",
+    "shortName": "bittensor-evm-mainnet",
+    "chainId": 964,
+    "networkId": 964,
+    "slip44": 1005,
+    "icon": "bittensor"
   },
   {
     "name": "EthXY",
@@ -45262,7 +45281,7 @@
       "symbol": "ETH",
       "decimals": 18
     },
-    "infoURL": "https://www.plumenetwork.xyz/",
+    "infoURL": "https://plumenetwork.xyz/",
     "shortName": "plume-devnet",
     "chainId": 98864,
     "networkId": 98864,
@@ -45295,7 +45314,7 @@
       "symbol": "ETH",
       "decimals": 18
     },
-    "infoURL": "https://www.plumenetwork.xyz/",
+    "infoURL": "https://plumenetwork.xyz/",
     "shortName": "plume",
     "chainId": 98865,
     "networkId": 98865,
@@ -56463,7 +56482,7 @@
       "symbol": "ETH",
       "decimals": 18
     },
-    "infoURL": "https://www.plumenetwork.xyz/",
+    "infoURL": "https://plumenetwork.xyz/",
     "shortName": "plume-testnet",
     "chainId": 161221135,
     "networkId": 161221135,

@@ -6,6 +6,8 @@ A simple, client-side application for browsing and managing EVM chains, primaril
 
 ![Chainlist Banner](./readme-assets/banner.png)
 
+![Social Preview](./readme-assets/social-preview.jpg)
+
 ## Features
 
 - **Browse Chains:** View a comprehensive list of EVM-compatible blockchains.

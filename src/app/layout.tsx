@@ -15,7 +15,9 @@ const geistSans = Outfit({
 
 export const metadata: Metadata = {
   title: 'Chainlist | Simplr.sh',
-  description: 'Ethereum Chainlist by Simplr.sh',
+  description:
+    'A simple, information-rich application for browsing and managing EVM chains',
+  metadataBase: new URL('https://chainlist.simplr.sh'),
   icons: [
     {
       rel: 'icon',
@@ -24,6 +26,25 @@ export const metadata: Metadata = {
       sizes: '512x512',
     },
   ],
+  openGraph: {
+    title: 'Chainlist | Simplr.sh',
+    description:
+      'A simple, information-rich application for browsing and managing EVM chains',
+    url: 'https://chainlist.simplr.sh',
+    siteName: 'Chainlist | Simplr.sh',
+    images: [{ url: '/og-image.jpg', width: 1280, height: 640 }],
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    title: 'Chainlist | Simplr.sh',
+    description:
+      'A simple, information-rich application for browsing and managing EVM chains',
+    card: 'summary_large_image',
+    images: [{ url: '/og-image.jpg', width: 1280, height: 640 }],
+    creator: '@SimplrSh',
+    site: '@SimplrSh',
+  },
 }
 
 export default function RootLayout({

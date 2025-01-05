@@ -14,7 +14,7 @@ const geistSans = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Chainlist | Simplr.sh',
+  title: 'ETH Chainlist | Simplr.sh',
   description:
     'A simple, information-rich application for browsing and managing EVM chains',
   metadataBase: new URL('https://chainlist.simplr.sh'),
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: 'Chainlist | Simplr.sh',
+    title: 'ETH Chainlist | Simplr.sh',
     description:
       'A simple, information-rich application for browsing and managing EVM chains',
     url: 'https://chainlist.simplr.sh',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
   },
   twitter: {
-    title: 'Chainlist | Simplr.sh',
+    title: 'ETH Chainlist | Simplr.sh',
     description:
       'A simple, information-rich application for browsing and managing EVM chains',
     card: 'summary_large_image',

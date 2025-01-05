@@ -45,6 +45,13 @@ export const metadata: Metadata = {
     creator: '@SimplrSh',
     site: '@SimplrSh',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-video-preview': 0,
+    'max-snippet': 150,
+  },
 }
 
 export default function RootLayout({

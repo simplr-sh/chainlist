@@ -9492,6 +9492,39 @@
     ]
   },
   {
+    "name": "Tranched Mainnet",
+    "chain": "tranched-mainnet",
+    "rpc": [
+      "https://tranched-mainnet.calderachain.xyz/http"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "features": [
+      {
+        "name": "EIP155"
+      },
+      {
+        "name": "EIP1559"
+      }
+    ],
+    "infoURL": "https://tranched-mainnet.hub.caldera.xyz",
+    "shortName": "tranched-mainnet",
+    "chainId": 743,
+    "networkId": 743,
+    "icon": "https://gateway.pinata.cloud/ipfs/bafkreieb6bx5nqv43qgykfuycpfilf5xk7v3jugli74ofb7pm6t6f5wcmu",
+    "explorers": [
+      {
+        "name": "Tranched Mainnet Caldera Explorer",
+        "url": "https://tranched-mainnet.calderaexplorer.xyz",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
     "name": "EVM on Flow",
     "chain": "Flow",
     "rpc": [
@@ -25077,6 +25110,32 @@
     }
   },
   {
+    "name": "InitVerse mainnet",
+    "chain": "InitVerse",
+    "rpc": [
+      "https://rpc-mainnet.inichain.com"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "InitVerse",
+      "symbol": "INI",
+      "decimals": 18
+    },
+    "infoURL": "https://www.inichain.com",
+    "shortName": "INI",
+    "chainId": 7233,
+    "networkId": 7233,
+    "icon": "https://gateway.pinata.cloud/ipfs/bafkreieuowxl2syu2cfiebhqkdjrokbwq4sulcdrww3z4wws3vssm3phzi",
+    "explorers": [
+      {
+        "name": "initverse",
+        "url": "https://www.iniscan.com",
+        "icon": "https://gateway.pinata.cloud/ipfs/bafkreieuowxl2syu2cfiebhqkdjrokbwq4sulcdrww3z4wws3vssm3phzi",
+        "standard": "none"
+      }
+    ]
+  },
+  {
     "name": "InitVerse genesis testnet",
     "chain": "InitVerse",
     "rpc": [
@@ -26048,6 +26107,37 @@
       }
     ],
     "infoURL": "https://mochain.app"
+  },
+  {
+    "name": "Exorium Testnet",
+    "chain": "EXOR",
+    "rpc": [
+      "https://rpc-1-testnet.exorium.net",
+      "https://rpc-2-testnet.exorium.net",
+      "https://rpc-testnet.exoscan.net/"
+    ],
+    "faucets": [
+      "https://faucet-testnet.exorium.net"
+    ],
+    "nativeCurrency": {
+      "name": "EXOR",
+      "symbol": "tEXOR",
+      "decimals": 18
+    },
+    "infoURL": "https://exorium.net",
+    "shortName": "texor",
+    "chainId": 7957,
+    "networkId": 7957,
+    "slip44": 1,
+    "icon": "https://cdn.jsdelivr.net/gh/ethereum-lists/chains@master/_data/iconsDownload/QmTY2Z7AEEWxmzQyh7DFG8fyR3w6Y166GDJfi6o3xo6GgV",
+    "explorers": [
+      {
+        "name": "EXORIUM Testnet Explorer",
+        "icon": "https://cdn.jsdelivr.net/gh/ethereum-lists/chains@master/_data/iconsDownload/QmTY2Z7AEEWxmzQyh7DFG8fyR3w6Y166GDJfi6o3xo6GgV",
+        "url": "https://testnet.exoscan.net",
+        "standard": "none"
+      }
+    ]
   },
   {
     "name": "DOS Chain",
@@ -38794,6 +38884,32 @@
     ]
   },
   {
+    "name": "CAGA mainnet",
+    "chain": "CAGA",
+    "rpc": [
+      "https://cagamainnet.com",
+      "wss://cagamainnet.com/ws"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "CAGA",
+      "symbol": "CAGA",
+      "decimals": 18
+    },
+    "infoURL": "https://www.cagacrypto.com/",
+    "shortName": "caga-mainnet",
+    "chainId": 72888,
+    "networkId": 72888,
+    "icon": "https://gateway.pinata.cloud/ipfs/Qmeiop9gSdzU4NNJ6GCuPk6AeYwD9pbhEFVfRdk4dXs3kJ",
+    "explorers": [
+      {
+        "name": "caga",
+        "url": "https://explorer.cagamainnet.com",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
     "name": "Grok Chain Mainnet",
     "chain": "Grok",
     "icon": "https://gateway.pinata.cloud/ipfs/bafkreicepw6yqtmubtpcthecjx47ndwgywartfqnkdhf66k3q57h2hlewm",
@@ -49882,6 +49998,32 @@
       {
         "name": "Swan Proxima Chain explorer",
         "url": "https://proxima-explorer.swanchain.io",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
+    "name": "ETP Mainnet",
+    "chain": "ETP",
+    "rpc": [
+      "https://rpc.etpscan.xyz"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "ETP Chain Native Token",
+      "symbol": "ETP",
+      "decimals": 18
+    },
+    "infoURL": "https://www.etposchain.com",
+    "shortName": "ETP",
+    "chainId": 20256789,
+    "networkId": 20256789,
+    "icon": "https://cdn.jsdelivr.net/gh/ethereum-lists/chains@master/_data/iconsDownload/bafkreid4pi4wvhivaydzlflqqgdbddrmmc2szqtgsuhrp4hgfplg2z7ffe",
+    "explorers": [
+      {
+        "name": "ETPScan",
+        "url": "https://etpscan.xyz",
+        "icon": "https://cdn.jsdelivr.net/gh/ethereum-lists/chains@master/_data/iconsDownload/bafkreid4pi4wvhivaydzlflqqgdbddrmmc2szqtgsuhrp4hgfplg2z7ffe",
         "standard": "EIP3091"
       }
     ]

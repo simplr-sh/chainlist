@@ -3840,6 +3840,20 @@
     "infoURL": "https://swapdex.network/"
   },
   {
+    "name": "Lens",
+    "chainId": 232,
+    "shortName": "lens",
+    "networkId": 232,
+    "nativeCurrency": {
+      "name": "GHO",
+      "symbol": "GHO",
+      "decimals": 18
+    },
+    "rpc": [],
+    "faucets": [],
+    "infoURL": "https://lens.xyz"
+  },
+  {
     "name": "Ethernity Testnet",
     "chainId": 233,
     "shortName": "ethernity-testnet",
@@ -6734,6 +6748,22 @@
     ],
     "faucets": [],
     "infoURL": "https://token.script.tv"
+  },
+  {
+    "name": "Tranched Mainnet",
+    "chainId": 743,
+    "shortName": "tranched-mainnet",
+    "networkId": 743,
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://tranched-mainnet.calderachain.xyz/http"
+    ],
+    "faucets": [],
+    "infoURL": "https://tranched-mainnet.hub.caldera.xyz"
   },
   {
     "name": "EVM on Flow",
@@ -17638,6 +17668,22 @@
     "infoURL": "https://nibiru.fi"
   },
   {
+    "name": "InitVerse mainnet",
+    "chainId": 7233,
+    "shortName": "INI",
+    "networkId": 7233,
+    "nativeCurrency": {
+      "name": "InitVerse",
+      "symbol": "INI",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc-mainnet.inichain.com"
+    ],
+    "faucets": [],
+    "infoURL": "https://www.inichain.com"
+  },
+  {
     "name": "InitVerse genesis testnet",
     "chainId": 7234,
     "shortName": "INICHAIN",
@@ -18247,6 +18293,26 @@
       "https://faucet.mochain.app/"
     ],
     "infoURL": "https://mochain.app"
+  },
+  {
+    "name": "Exorium Testnet",
+    "chainId": 7957,
+    "shortName": "texor",
+    "networkId": 7957,
+    "nativeCurrency": {
+      "name": "EXOR",
+      "symbol": "tEXOR",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc-1-testnet.exorium.net",
+      "https://rpc-2-testnet.exorium.net",
+      "https://rpc-testnet.exoscan.net/"
+    ],
+    "faucets": [
+      "https://faucet-testnet.exorium.net"
+    ],
+    "infoURL": "https://exorium.net"
   },
   {
     "name": "DOS Chain",
@@ -26725,6 +26791,23 @@
     "infoURL": "https://www.cagacrypto.com/"
   },
   {
+    "name": "CAGA mainnet",
+    "chainId": 72888,
+    "shortName": "caga-mainnet",
+    "networkId": 72888,
+    "nativeCurrency": {
+      "name": "CAGA",
+      "symbol": "CAGA",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://cagamainnet.com",
+      "wss://cagamainnet.com/ws"
+    ],
+    "faucets": [],
+    "infoURL": "https://www.cagacrypto.com/"
+  },
+  {
     "name": "Grok Chain Mainnet",
     "chainId": 72992,
     "shortName": "GrokChain",
@@ -34249,6 +34332,22 @@
     ],
     "faucets": [],
     "infoURL": "https://swanchain.io/"
+  },
+  {
+    "name": "ETP Mainnet",
+    "chainId": 20256789,
+    "shortName": "ETP",
+    "networkId": 20256789,
+    "nativeCurrency": {
+      "name": "ETP Chain Native Token",
+      "symbol": "ETP",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.etpscan.xyz"
+    ],
+    "faucets": [],
+    "infoURL": "https://www.etposchain.com"
   },
   {
     "name": "Hokum Testnet",

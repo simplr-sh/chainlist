@@ -5,6 +5,7 @@ import { takeRight, truncateAddress } from '@/lib/utils'
 import type { ChainList } from '@/types/chain'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { CopyIcon, ExternalLinkIcon, Loader2Icon } from 'lucide-react'
+import Image from 'next/image'
 import { Fragment, memo } from 'react'
 import { TableVirtuoso } from 'react-virtuoso'
 import { toast } from 'sonner'
@@ -98,7 +99,20 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                   className="object-contain !rounded-sm"
                 />
                 <AvatarFallback className="font-bold !rounded-sm bg-primary/5">
-                  {chain.chain.substring(0, 3).toUpperCase()}
+                  {/* {chain.chain.substring(0, 3).toUpperCase()} */}
+                  <Image
+                    unoptimized
+                    loading="lazy"
+                    // src={chain.chain.substring(0, 4).toUpperCase()}
+                    src={`https://gradivatar.simplr.sh/${chain.chain
+                      .substring(0, 4)
+                      .toUpperCase()}?text=${chain.chain
+                      .substring(0, 4)
+                      .toUpperCase()}`}
+                    alt={chain.chain}
+                    width={64}
+                    height={64}
+                  />
                 </AvatarFallback>
               </Avatar>
               <div className="w-full shrink flex flex-col gap-0.5 sm:gap-1">

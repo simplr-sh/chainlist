@@ -104,12 +104,12 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                     unoptimized
                     loading="lazy"
                     // src={chain.chain.substring(0, 4).toUpperCase()}
-                    src={`https://gradivatar.simplr.sh/${chain.chain
+                    src={`https://gradivatar.simplr.sh/${chain.shortName
                       .substring(0, 4)
-                      .toUpperCase()}?text=${chain.chain
+                      .toUpperCase()}?text=${chain.shortName
                       .substring(0, 4)
                       .toUpperCase()}`}
-                    alt={chain.chain}
+                    alt={chain.name}
                     width={64}
                     height={64}
                   />

@@ -219,7 +219,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
                         variant={'secondary'}
                         className="text-left"
                       >
-                        {new URL(faucet).hostname}&nbsp;
+                        {URL.canParse(faucet) && new URL(faucet).hostname}&nbsp;
                         <CopyIcon
                           className="w-3 h-3 shrink-0 cursor-pointer"
                           onClick={() => {
@@ -266,6 +266,7 @@ export const ChainsTable = memo(({ chainlist }: { chainlist: ChainList }) => {
           <Td styles={{ width: 800 }}>
             <div className="flex flex-wrap gap-1">
               {chain.rpc.map((url) => {
+                if (!URL.canParse(url)) return null
                 const _url = new URL(url)
                 return (
                   <Badge

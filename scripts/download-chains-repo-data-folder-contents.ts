@@ -1,6 +1,8 @@
 import type { ChainList } from '@/types/chain'
 import { $ } from 'bun'
 
+// const glob = new Glob('**/*.json')
+
 async function main() {
   await $`echo "Cloning chains repo"`
   const output =
@@ -18,6 +20,14 @@ async function main() {
   const chains = await fetch('https://chainid.network/chains.json').then(
     (res) => res.json() as Promise<ChainList>
   )
+  // const chains: ChainList = []
+
+  // for await (const file of glob.scan('./chains/_data/chains')) {
+  //   const json = await Bun.file(`./chains/_data/chains/${file}`).json()
+  //   chains.push(json)
+  // }
+
+  // console.log(_chains.length, chains.length)
 
   const updatedChainList: ChainList = []
 
@@ -36,7 +46,10 @@ async function main() {
       }
     }
 
-    if (!chain.explorers?.length) continue
+    if (!chain.explorers?.length) {
+      updatedChainList.push(chain)
+      continue
+    }
 
     for (const explorer of chain.explorers) {
       if (explorer.icon) {
@@ -61,6 +74,8 @@ async function main() {
     './src/data/chains.json',
     JSON.stringify(updatedChainList, null, 2)
   )
+
+  console.log(updatedChainList.length)
 
   await $`echo "Deleting cloned chains repo"`
   await $`rm -rf chains`

@@ -36381,6 +36381,32 @@
     ]
   },
   {
+    "name": "Ultra EVM Network Testnet",
+    "chain": "Ultra",
+    "icon": "ultra",
+    "rpc": [
+      "https://evm.test.ultra.eosusa.io"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "Ultra Token",
+      "symbol": "UOS",
+      "decimals": 18
+    },
+    "infoURL": "https://ultra.io/",
+    "shortName": "ultra-testnet",
+    "chainId": 18881,
+    "networkId": 18881,
+    "slip44": 1,
+    "explorers": [
+      {
+        "name": "Ultra EVM Testnet Explorer",
+        "url": "https://evmexplorer.testnet.ultra.io",
+        "standard": "EIP3091"
+      }
+    ]
+  },
+  {
     "name": "Titan (TKX)",
     "chain": "Titan (TKX)",
     "rpc": [
@@ -44470,6 +44496,27 @@
         "standard": "none"
       }
     ]
+  },
+  {
+    "name": "Berachain",
+    "chain": "Berachain",
+    "rpc": [
+      "https://rpc.berachain.com"
+    ],
+    "faucets": [
+      "https://faucet.berachain.com"
+    ],
+    "nativeCurrency": {
+      "name": "BERA Token",
+      "symbol": "BERA",
+      "decimals": 18
+    },
+    "infoURL": "https://www.berachain.com",
+    "shortName": "berachain",
+    "chainId": 80094,
+    "networkId": 80094,
+    "icon": "berachain",
+    "explorers": []
   },
   {
     "name": "Hizoco mainnet",

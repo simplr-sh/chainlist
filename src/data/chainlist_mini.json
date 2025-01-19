@@ -22448,6 +22448,22 @@
     "infoURL": "https://expchain.ai"
   },
   {
+    "name": "Ultra EVM Network Testnet",
+    "chainId": 18881,
+    "shortName": "ultra-testnet",
+    "networkId": 18881,
+    "nativeCurrency": {
+      "name": "Ultra Token",
+      "symbol": "UOS",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://evm.test.ultra.eosusa.io"
+    ],
+    "faucets": [],
+    "infoURL": "https://ultra.io/"
+  },
+  {
     "name": "Titan (TKX)",
     "chainId": 18888,
     "shortName": "titan_tkx",
@@ -27273,6 +27289,24 @@
     ],
     "faucets": [
       "https://artio.faucet.berachain.com"
+    ],
+    "infoURL": "https://www.berachain.com"
+  },
+  {
+    "name": "Berachain",
+    "chainId": 80094,
+    "shortName": "berachain",
+    "networkId": 80094,
+    "nativeCurrency": {
+      "name": "BERA Token",
+      "symbol": "BERA",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.berachain.com"
+    ],
+    "faucets": [
+      "https://faucet.berachain.com"
     ],
     "infoURL": "https://www.berachain.com"
   },

@@ -10270,6 +10270,22 @@
     "infoURL": "https://polygon.technology/solutions/polygon-zkevm/"
   },
   {
+    "name": "Perennial",
+    "chainId": 1424,
+    "shortName": "perennial",
+    "networkId": 1424,
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.perennial.foundation"
+    ],
+    "faucets": [],
+    "infoURL": "https://perennial.finance"
+  },
+  {
     "name": "Rikeza Network Mainnet",
     "chainId": 1433,
     "shortName": "RIK",
@@ -25005,6 +25021,22 @@
     "infoURL": "https://web3games.com/"
   },
   {
+    "name": "BasedAI Mainnet",
+    "chainId": 32323,
+    "shortName": "basedai",
+    "networkId": 32323,
+    "nativeCurrency": {
+      "name": "BasedAI",
+      "symbol": "BASED",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://mainnet.basedaibridge.com/rpc/"
+    ],
+    "faucets": [],
+    "infoURL": "https://getbased.ai"
+  },
+  {
     "name": "Santiment Intelligence Network",
     "chainId": 32382,
     "shortName": "SANR",
@@ -27240,6 +27272,22 @@
     ],
     "faucets": [],
     "infoURL": "https://gobob.xyz"
+  },
+  {
+    "name": "Perennial Sepolia",
+    "chainId": 60850,
+    "shortName": "perennial-sepolia",
+    "networkId": 60850,
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc-sepolia.perennial.foundation"
+    ],
+    "faucets": [],
+    "infoURL": "https://perennial.finance"
   },
   {
     "name": "Orange Chain Mainnet",
@@ -38606,13 +38654,13 @@
     "infoURL": "https://ipdc.io"
   },
   {
-    "name": "Smart Pay Mobile Money",
+    "name": "SmartPay Mobile Money",
     "chainId": 666301179999,
     "shortName": "SmartPay",
     "networkId": 666301179999,
     "nativeCurrency": {
       "name": "SmartPay Mobile Money",
-      "symbol": "SMRTP",
+      "symbol": "SMM",
       "decimals": 18
     },
     "rpc": [

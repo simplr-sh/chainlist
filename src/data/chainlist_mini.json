@@ -3659,10 +3659,10 @@
       "decimals": 18
     },
     "rpc": [
-      "https://happy-testnet-sepolia.rpc.caldera.xyz/http"
+      "https://rpc.testnet.happy.tech/http"
     ],
     "faucets": [],
-    "infoURL": "https://happy-testnet-sepolia.hub.caldera.xyz"
+    "infoURL": "https://testnet.happy.tech"
   },
   {
     "name": "SiriusNet V2",
@@ -16896,6 +16896,22 @@
     "infoURL": "https://edexa.network/"
   },
   {
+    "name": "Inertia Scan",
+    "chainId": 5433,
+    "shortName": "IRTA",
+    "networkId": 5433,
+    "nativeCurrency": {
+      "name": "Inertia",
+      "symbol": "IRTA",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.inertiascan.com"
+    ],
+    "faucets": [],
+    "infoURL": "https://inertiascan.com"
+  },
+  {
     "name": "Egochain",
     "chainId": 5439,
     "shortName": "egax",
@@ -25021,7 +25037,7 @@
     "infoURL": "https://web3games.com/"
   },
   {
-    "name": "BasedAI Mainnet",
+    "name": "BasedAI",
     "chainId": 32323,
     "shortName": "basedai",
     "networkId": 32323,
@@ -29622,7 +29638,7 @@
     "infoURL": "http://optimusz7.com"
   },
   {
-    "name": "Plume Devnet",
+    "name": "Plume Devnet (Legacy)",
     "chainId": 98864,
     "shortName": "plume-devnet",
     "networkId": 98864,
@@ -29670,6 +29686,25 @@
       "wss://phoenix-rpc.plumenetwork.xyz"
     ],
     "faucets": [],
+    "infoURL": "https://plumenetwork.xyz/"
+  },
+  {
+    "name": "Plume Testnet",
+    "chainId": 98867,
+    "shortName": "plume-testnet",
+    "networkId": 98867,
+    "nativeCurrency": {
+      "name": "Plume",
+      "symbol": "PLUME",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://testnet-rpc.plumenetwork.xyz",
+      "wss://testnet-rpc.plumenetwork.xyz"
+    ],
+    "faucets": [
+      "https://faucet.plumenetwork.xyz"
+    ],
     "infoURL": "https://plumenetwork.xyz/"
   },
   {
@@ -33768,6 +33803,22 @@
     "infoURL": "https://www.rmrk.app/"
   },
   {
+    "name": "Winr Protocol Mainnet",
+    "chainId": 777777,
+    "shortName": "winr",
+    "networkId": 777777,
+    "nativeCurrency": {
+      "name": "Winr",
+      "symbol": "WINR",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.winr.games"
+    ],
+    "faucets": [],
+    "infoURL": "https://winr.games"
+  },
+  {
     "name": "Oone Chain Mainnet",
     "chainId": 777888,
     "shortName": "oone",
@@ -34648,6 +34699,25 @@
     ],
     "faucets": [],
     "infoURL": "https://ata.network"
+  },
+  {
+    "name": "XRPL EVM Sidechain Devnet",
+    "chainId": 1440002,
+    "shortName": "xrplevm",
+    "networkId": 1440002,
+    "nativeCurrency": {
+      "name": "XRP",
+      "symbol": "XRP",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc.xrplevm.org",
+      "https://ws.xrplevm.org"
+    ],
+    "faucets": [
+      "https://chains.tools/faucet/xrplevm"
+    ],
+    "infoURL": "https://xrplevm.org"
   },
   {
     "name": "Waterfall 9 Test Network",
@@ -36740,6 +36810,22 @@
     "infoURL": "https://autonity.org/"
   },
   {
+    "name": "Winr Protocol Testnet",
+    "chainId": 66666666,
+    "shortName": "winrtestnet",
+    "networkId": 66666666,
+    "nativeCurrency": {
+      "name": "Winr",
+      "symbol": "WINR",
+      "decimals": 18
+    },
+    "rpc": [
+      "https://rpc-devnet.winr.games"
+    ],
+    "faucets": [],
+    "infoURL": "https://winr.games"
+  },
+  {
     "name": "Frame Testnet",
     "chainId": 68840142,
     "shortName": "frametest",
@@ -36981,9 +37067,9 @@
     "infoURL": "https://raas.gelato.network/rollups/details/public/opcelestia-raspberry"
   },
   {
-    "name": "Plume Testnet",
+    "name": "Plume Testnet (Legacy)",
     "chainId": 161221135,
-    "shortName": "plume-testnet",
+    "shortName": "plume-testnet-legacy",
     "networkId": 161221135,
     "nativeCurrency": {
       "name": "Plume Sepolia Ether",

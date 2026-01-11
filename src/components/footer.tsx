@@ -24,7 +24,7 @@ export function Footer({ className }: FooterProps) {
           >
             Simplr.sh
           </a>
-          &nbsp;&nbsp; | &nbsp;2024
+          &nbsp;&nbsp; | &nbsp;{new Date().getFullYear()}
         </p>
 
         <div className="flex items-center gap-8">

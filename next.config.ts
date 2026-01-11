@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     ppr: true,
-    reactCompiler: true,
   },
 }
 
